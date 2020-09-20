@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './index.scss';
+import Main from './Main';
 // import * as serviceWorker from './serviceWorker';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
@@ -13,7 +13,7 @@ const client = new ApolloClient({
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
-      <App />
+      <Main />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
