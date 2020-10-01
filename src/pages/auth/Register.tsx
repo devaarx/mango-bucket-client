@@ -4,15 +4,19 @@ import styles from './index.module.scss';
 
 interface Props {}
 
-const Login: React.FC<Props> = () => {
+const Register: React.FC<Props> = () => {
   return (
     <div className={styles.auth_wrap}>
       <div className={styles.auth_box}>
-        <h1>Log in to your Buckets</h1>
+        <h1>Create your Buckets</h1>
         <p>
-          Don’t have an account? <Link to="/register">Register Now</Link>
+          Already have an account? <Link to="/login">Log In</Link>
         </p>
         <form>
+          <div className="input_group">
+            <label htmlFor="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter your full name" />
+          </div>
           <div className="input_group">
             <label htmlFor="email">Email Address</label>
             <input type="email" name="email" id="email" placeholder="Enter your email address" />
@@ -22,8 +26,7 @@ const Login: React.FC<Props> = () => {
             <input type="password" name="password" id="password" placeholder="Enter your password" />
           </div>
           <div className="input_submit">
-            <button type="submit">Log in</button>
-            <Link to="/forgot-password">Forgot Password?</Link>
+            <button type="submit">Create</button>
           </div>
         </form>
       </div>
@@ -31,4 +34,4 @@ const Login: React.FC<Props> = () => {
   );
 };
 
-export default Login;
+export default Register;

@@ -1,22 +1,23 @@
 import { RouteComponentProps, Router } from '@reach/router';
 import React from 'react';
+import './global.scss';
 import App from './pages/app/App';
 import Login from './pages/auth/Login';
-import Signup from './pages/auth/Signup';
+import Register from './pages/auth/Register';
 
 // routes
 let LoginComponent = (_props: RouteComponentProps) => <Login />;
 let AppComponent = (_props: RouteComponentProps) => <App />;
-let SignupComponent = (_props: RouteComponentProps) => <Signup />;
+let RegisterComponent = (_props: RouteComponentProps) => <Register />;
 
-function Main() {
+const Main: React.FC = () => {
   return (
     <Router>
       <LoginComponent path="/login" />
-      <SignupComponent path="/signup" />
+      <RegisterComponent path="/register" />
       <AppComponent path="/" />
     </Router>
   );
-}
+};
 
 export default Main;
