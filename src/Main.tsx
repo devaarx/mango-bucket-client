@@ -1,8 +1,8 @@
 import { RouteComponentProps, Router } from '@reach/router';
 import React from 'react';
-import App from './components/app/App';
-import Login from './components/auth/Login';
-import Signup from './components/auth/Signup';
+import App from './pages/app/App';
+import Login from './pages/auth/Login';
+import Signup from './pages/auth/Signup';
 
 // routes
 let LoginComponent = (_props: RouteComponentProps) => <Login />;
