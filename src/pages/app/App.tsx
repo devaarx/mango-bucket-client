@@ -1,7 +1,14 @@
 import React from 'react';
+import Sidebar from '../../components/Sidebar';
 
-function App() {
-  return <div>App screen</div>;
-}
+interface Props {}
+
+const App: React.FC<Props> = () => {
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
+};
 
 export default App;
