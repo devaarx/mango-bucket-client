@@ -1,17 +1,14 @@
 import React from 'react';
-import { getIcon } from '../utils';
+import styles from './Sidebar.module.scss';
+import SideToolbar from './SideToolbar';
 
 interface Props {}
 
 const Sidebar: React.FC<Props> = () => {
   return (
-    <div>
-      hello sidebar
-      <div>
-        {getIcon('ADD')}
-        {getIcon('SEARCH')}
-        {getIcon('GEAR')}
-      </div>
+    <div className={styles.aside}>
+      <h3>hello sidebar</h3>
+      <SideToolbar />
     </div>
   );
 };

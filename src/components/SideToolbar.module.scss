@@ -1,0 +1,19 @@
+.tool {
+  padding: 1.25rem 2.25rem;
+  display: flex;
+  > button {
+    display: flex;
+    align-items: center;
+    color: #383838;
+    border: none;
+    // background-color: transparent;
+    background: transparent;
+    min-width: auto;
+    > span {
+      margin-left: 10px;
+    }
+    &:first-child {
+      flex: 1 0 0px;
+    }
+  }
+}
