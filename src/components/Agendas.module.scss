@@ -1,0 +1,46 @@
+.agendas {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 2.08rem;
+  > button {
+    font-size: 1.125rem;
+    color: #939393;
+    padding: 0.43rem;
+    border-radius: 8px;
+    background: transparent;
+    height: 2.5rem;
+    border: none;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    > span {
+      background-color: #cccccc;
+      width: 1.625rem;
+      height: 1.625rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      margin-right: 0.75rem;
+    }
+    &:nth-child(1) {
+      > span {
+        background-color: #3689e6;
+      }
+    }
+    &:nth-child(2) {
+      > span {
+        background-color: #ffaa00;
+      }
+    }
+    &:nth-child(3) {
+      > span {
+        background-color: #692fc2;
+      }
+    }
+    &:active {
+      background-color: #e4e4e4;
+      color: #383838;
+    }
+  }
+}
