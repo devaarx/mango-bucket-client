@@ -1,0 +1,14 @@
+.bucket {
+  flex: 1 0 0px;
+  padding: 0 2.08rem;
+  h3 {
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0 0.43rem;
+  }
+  &_list {
+    padding: 1.25rem 0;
+  }
+}

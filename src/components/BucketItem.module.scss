@@ -1,0 +1,26 @@
+.item {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  color: #727272;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: left;
+  width: 100%;
+  line-height: normal;
+  margin-bottom: 0.25rem;
+  &_label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1 0 0px;
+    padding-right: 0.875rem;
+  }
+  &:active {
+    background-color: #e4e4e4;
+    color: #383838;
+  }
+}
