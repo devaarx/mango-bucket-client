@@ -1,0 +1,17 @@
+query allBuckets {
+  allBuckets {
+    id
+    name
+    description
+    pinned
+    deadline
+    color
+    tasks {
+      id
+      name
+      description
+      status
+      schedule_time
+    }
+  }
+}

@@ -136,6 +136,21 @@ export type MutationUpdateTaskArgs = {
   schedule_time?: Maybe<Scalars['DateTime']>;
 };
 
+export type AllBucketsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AllBucketsQuery = (
+  { __typename?: 'Query' }
+  & { allBuckets: Array<(
+    { __typename?: 'Bucket' }
+    & Pick<Bucket, 'id' | 'name' | 'description' | 'pinned' | 'deadline' | 'color'>
+    & { tasks?: Maybe<Array<(
+      { __typename?: 'Task' }
+      & Pick<Task, 'id' | 'name' | 'description' | 'status' | 'schedule_time'>
+    )>> }
+  )> }
+);
+
 export type LoginMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
@@ -166,6 +181,50 @@ export type RegisterMutation = (
 );
 
 
+export const AllBucketsDocument = gql`
+    query allBuckets {
+  allBuckets {
+    id
+    name
+    description
+    pinned
+    deadline
+    color
+    tasks {
+      id
+      name
+      description
+      status
+      schedule_time
+    }
+  }
+}
+    `;
+
+/**
+ * __useAllBucketsQuery__
+ *
+ * To run a query within a React component, call `useAllBucketsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useAllBucketsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useAllBucketsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useAllBucketsQuery(baseOptions?: Apollo.QueryHookOptions<AllBucketsQuery, AllBucketsQueryVariables>) {
+        return Apollo.useQuery<AllBucketsQuery, AllBucketsQueryVariables>(AllBucketsDocument, baseOptions);
+      }
+export function useAllBucketsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<AllBucketsQuery, AllBucketsQueryVariables>) {
+          return Apollo.useLazyQuery<AllBucketsQuery, AllBucketsQueryVariables>(AllBucketsDocument, baseOptions);
+        }
+export type AllBucketsQueryHookResult = ReturnType<typeof useAllBucketsQuery>;
+export type AllBucketsLazyQueryHookResult = ReturnType<typeof useAllBucketsLazyQuery>;
+export type AllBucketsQueryResult = Apollo.QueryResult<AllBucketsQuery, AllBucketsQueryVariables>;
 export const LoginDocument = gql`
     mutation Login($email: String!, $password: String!) {
   login(email: $email, password: $password) {
