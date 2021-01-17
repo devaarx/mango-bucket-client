@@ -1,7 +1,9 @@
+import { useNavigate } from '@reach/router';
 import React from 'react';
 import styles from './BucketItem.module.scss';
 
 interface Props {
+  id: string;
   label: string;
   count: string;
   selected: boolean;
@@ -9,10 +11,13 @@ interface Props {
   completion: string;
 }
 
-const BucketItem: React.FC<Props> = ({ label, count, selected, color, completion }) => {
+const BucketItem: React.FC<Props> = ({ id, label, count, selected, color, completion }) => {
+  const navigate = useNavigate();
+
   return (
     <button
       className={styles.item}
+      onClick={() => (!selected ? navigate(`/?bucket=${id}`) : undefined)}
       style={
         selected
           ? {

@@ -23,24 +23,13 @@
       border-radius: 6px;
       margin-right: 0.75rem;
     }
-    &:nth-child(1) {
-      > span {
-        background-color: #3689e6;
-      }
-    }
-    &:nth-child(2) {
-      > span {
-        background-color: #ffaa00;
-      }
-    }
-    &:nth-child(3) {
-      > span {
-        background-color: #692fc2;
-      }
-    }
-    &:active {
-      background-color: #e4e4e4;
-      color: #383838;
-    }
+    // &:active {
+    // background-color: #f0f0f0;
+    // color: #383838;
+    // }
+  }
+  &_active {
+    background-color: #e4e4e4 !important;
+    color: #383838 !important;
   }
 }
