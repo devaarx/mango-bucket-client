@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useAllBucketsQuery } from '../generated/graphql';
-import BucketItem from './BucketItem';
-import styles from './BucketList.module.scss';
+import AsideBucketItem from './AsideBucketItem';
+import styles from './AsideBucketList.module.scss';
 
 interface Props {
   selectedBucket: string | null;
@@ -15,7 +15,7 @@ const dummy = [
   { id: 'uihasd8as89879as', name: '🏖 Travel Plan 2021', count: '6', color: '#FFAA00', completion: '66' }
 ];
 
-const BucketList: React.FC<Props> = ({ selectedBucket }) => {
+const AsideBucketList: React.FC<Props> = ({ selectedBucket }) => {
   // const { data } = useAllBucketsQuery();
   // console.log(data);
 
@@ -24,7 +24,7 @@ const BucketList: React.FC<Props> = ({ selectedBucket }) => {
       <h3>My Buckets</h3>
       <div className={styles.bucket_list}>
         {dummy.map((bucket) => (
-          <BucketItem
+          <AsideBucketItem
             key={bucket.id}
             id={bucket.id}
             label={bucket.name}
@@ -39,4 +39,4 @@ const BucketList: React.FC<Props> = ({ selectedBucket }) => {
   );
 };
 
-export default BucketList;
+export default AsideBucketList;

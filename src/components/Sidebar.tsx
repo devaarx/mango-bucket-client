@@ -1,7 +1,7 @@
 import React from 'react';
 import { SelectedItem } from '../pages/app/App';
 import Agendas from './Agendas';
-import BucketList from './BucketList';
+import AsideBucketList from './AsideBucketList';
 import styles from './Sidebar.module.scss';
 import SideToolbar from './SideToolbar';
 
@@ -16,7 +16,7 @@ const Sidebar: React.FC<Props> = ({ selectedItem }) => {
   return (
     <div className={styles.aside}>
       <Agendas selectedAgenda={selectedAgenda} />
-      <BucketList selectedBucket={selectedBucket} />
+      <AsideBucketList selectedBucket={selectedBucket} />
       <SideToolbar />
     </div>
   );

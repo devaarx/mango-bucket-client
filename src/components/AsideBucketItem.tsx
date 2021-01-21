@@ -1,6 +1,6 @@
 import { useNavigate } from '@reach/router';
 import React from 'react';
-import styles from './BucketItem.module.scss';
+import styles from './AsideBucketItem.module.scss';
 
 interface Props {
   id: string;
@@ -11,7 +11,7 @@ interface Props {
   completion: string;
 }
 
-const BucketItem: React.FC<Props> = ({ id, label, count, selected, color, completion }) => {
+const AsideBucketItem: React.FC<Props> = ({ id, label, count, selected, color, completion }) => {
   const navigate = useNavigate();
 
   return (
@@ -33,4 +33,4 @@ const BucketItem: React.FC<Props> = ({ id, label, count, selected, color, comple
   );
 };
 
-export default BucketItem;
+export default AsideBucketItem;
