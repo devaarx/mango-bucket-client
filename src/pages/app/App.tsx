@@ -8,11 +8,11 @@ interface Props {}
 
 export interface SelectedItem {
   type: 'agenda' | 'bucket';
-  value: string | null;
+  value: string;
 }
 
 const App: React.FC<Props> = () => {
-  const [selectedItem, setSelectedItem] = useState<SelectedItem>({ type: 'agenda', value: null });
+  const [selectedItem, setSelectedItem] = useState<SelectedItem>({ type: 'agenda', value: '' });
   const location = useLocation();
 
   // set selected agenda as state from url params if available
