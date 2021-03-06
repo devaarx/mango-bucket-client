@@ -137,6 +137,7 @@ button {
   letter-spacing: 0.01em;
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 67.19%, #eeeeee 99.48%);
   color: rgba(114, 114, 114, 1);
+  outline: none;
   &[type='submit'] {
     background: linear-gradient(180deg, #eaf6ff 0%, #68bcff 7.81%, #3da8fd 33.85%, #1b87dd 99.48%);
     border: 1px solid rgba(39, 130, 203, 0.6);
