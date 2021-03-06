@@ -117,7 +117,7 @@ export type MutationUpdateBucketArgs = {
 export type MutationCreateTaskArgs = {
   name: Scalars['String'];
   description?: Maybe<Scalars['String']>;
-  status: Scalars['String'];
+  status?: Maybe<Scalars['String']>;
   schedule_time: Scalars['DateTime'];
   bucket_id: Scalars['String'];
 };
@@ -149,6 +149,23 @@ export type AllBucketsQuery = (
       & Pick<Task, 'id' | 'name' | 'description' | 'status' | 'schedule_time'>
     )>> }
   )> }
+);
+
+export type BucketInfoQueryVariables = Exact<{
+  bucket_id: Scalars['String'];
+}>;
+
+
+export type BucketInfoQuery = (
+  { __typename?: 'Query' }
+  & { bucketInfo: (
+    { __typename?: 'Bucket' }
+    & Pick<Bucket, 'id' | 'name' | 'description' | 'pinned' | 'deadline' | 'color'>
+    & { tasks?: Maybe<Array<(
+      { __typename?: 'Task' }
+      & Pick<Task, 'id' | 'name' | 'description' | 'status' | 'schedule_time'>
+    )>> }
+  ) }
 );
 
 export type LoginMutationVariables = Exact<{
@@ -225,6 +242,51 @@ export function useAllBucketsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type AllBucketsQueryHookResult = ReturnType<typeof useAllBucketsQuery>;
 export type AllBucketsLazyQueryHookResult = ReturnType<typeof useAllBucketsLazyQuery>;
 export type AllBucketsQueryResult = Apollo.QueryResult<AllBucketsQuery, AllBucketsQueryVariables>;
+export const BucketInfoDocument = gql`
+    query bucketInfo($bucket_id: String!) {
+  bucketInfo(bucket_id: $bucket_id) {
+    id
+    name
+    description
+    pinned
+    deadline
+    color
+    tasks {
+      id
+      name
+      description
+      status
+      schedule_time
+    }
+  }
+}
+    `;
+
+/**
+ * __useBucketInfoQuery__
+ *
+ * To run a query within a React component, call `useBucketInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useBucketInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useBucketInfoQuery({
+ *   variables: {
+ *      bucket_id: // value for 'bucket_id'
+ *   },
+ * });
+ */
+export function useBucketInfoQuery(baseOptions?: Apollo.QueryHookOptions<BucketInfoQuery, BucketInfoQueryVariables>) {
+        return Apollo.useQuery<BucketInfoQuery, BucketInfoQueryVariables>(BucketInfoDocument, baseOptions);
+      }
+export function useBucketInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<BucketInfoQuery, BucketInfoQueryVariables>) {
+          return Apollo.useLazyQuery<BucketInfoQuery, BucketInfoQueryVariables>(BucketInfoDocument, baseOptions);
+        }
+export type BucketInfoQueryHookResult = ReturnType<typeof useBucketInfoQuery>;
+export type BucketInfoLazyQueryHookResult = ReturnType<typeof useBucketInfoLazyQuery>;
+export type BucketInfoQueryResult = Apollo.QueryResult<BucketInfoQuery, BucketInfoQueryVariables>;
 export const LoginDocument = gql`
     mutation Login($email: String!, $password: String!) {
   login(email: $email, password: $password) {

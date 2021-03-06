@@ -15,3 +15,21 @@ query allBuckets {
     }
   }
 }
+
+query bucketInfo($bucket_id: String!) {
+  bucketInfo(bucket_id: $bucket_id) {
+    id
+    name
+    description
+    pinned
+    deadline
+    color
+    tasks {
+      id
+      name
+      description
+      status
+      schedule_time
+    }
+  }
+}
