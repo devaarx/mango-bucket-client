@@ -5,13 +5,12 @@ import styles from './AsideBucketItem.module.scss';
 interface Props {
   id: string;
   label: string;
-  count: string;
+  count: number | undefined;
   selected: boolean;
   color: string;
-  completion: string;
 }
 
-const AsideBucketItem: React.FC<Props> = ({ id, label, count, selected, color, completion }) => {
+const AsideBucketItem: React.FC<Props> = ({ id, label, selected, count, color }) => {
   const navigate = useNavigate();
 
   return (
@@ -24,7 +23,7 @@ const AsideBucketItem: React.FC<Props> = ({ id, label, count, selected, color, c
               backgroundColor: '#e4e4e4',
               color: '#383838'
             }
-          : {}
+          : undefined
       }
     >
       <span className={styles.item_label}>{label}</span>
