@@ -1,6 +1,15 @@
 .desc {
-  margin: 0 0 1rem;
+  margin: 0 0 2.5rem;
   &_header {
     margin: 0 0 2rem;
+    > h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    > p {
+      color: #727272;
+      font-size: 1rem;
+      margin: 0.875rem 0 0;
+    }
   }
 }
