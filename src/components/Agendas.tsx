@@ -21,7 +21,7 @@ const Agendas: React.FC<Props> = ({ selectedAgenda }) => {
       {AGENDAS.map((agenda) => (
         <button
           key={agenda.icon}
-          onClick={() => (agenda.name !== selectedAgenda ? navigate(`?agenda=${agenda.name}`) : undefined)}
+          onPointerDown={() => (agenda.name !== selectedAgenda ? navigate(`?agenda=${agenda.name}`) : undefined)}
           className={agenda.name === selectedAgenda ? styles.agendas_active : ''}
         >
           <span style={{ backgroundColor: agenda.color }}>{getIcon(agenda.icon)}</span>

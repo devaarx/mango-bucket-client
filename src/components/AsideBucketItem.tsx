@@ -16,7 +16,7 @@ const AsideBucketItem: React.FC<Props> = ({ id, label, selected, count, color })
   return (
     <button
       className={styles.item}
-      onClick={() => (!selected ? navigate(`/?bucket=${id}`) : undefined)}
+      onPointerDown={() => (!selected ? navigate(`/?bucket=${id}`) : undefined)}
       style={
         selected
           ? {
