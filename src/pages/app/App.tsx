@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import BucketDetails from '../../components/BucketDetails';
 import Layout from '../../components/Layout';
 import Sidebar from '../../components/Sidebar';
+import styles from './App.module.scss';
 
 interface Props {}
 
@@ -49,7 +50,7 @@ const App: React.FC<Props> = () => {
   return (
     <Layout>
       <Sidebar selectedItem={selectedItem} />
-      {renderMainContent()}
+      <div className={styles.main}>{renderMainContent()}</div>
     </Layout>
   );
 };
